@@ -26,7 +26,7 @@ if st.button("Generate & Download ZIP"):
         with zipfile.ZipFile(zip_buf, "w", zipfile.ZIP_DEFLATED) as zipf:
             for entry in entries:
                 type_match = re.search(
-                    r"(\d+)\s*(?:on)?\s*(registered plan|rp|survey plan|sp|crown plan|cp|plan)\s*([A-Za-z]{2,4})?\s*(\d+)",
+                    r"(\d+)\s*(?:on)?\s*(registered plan|rp|survey plan|sp|crown plan|cp|plan)\s*([A-Za-z]{1,4})?\s*(\d+)",
                     entry,
                     re.IGNORECASE,
                 )
@@ -52,7 +52,7 @@ if st.button("Generate & Download ZIP"):
                 else:
                     entry_clean = entry.strip()
                     m2 = re.match(
-                        r"(\d+)\s*[/\\-]?\s*([A-Za-z]{2,4})\s*(\d+)",
+                        r"(\d+)\s*[/\\-]?\s*([A-Za-z]{1,4})\s*(\d+)",
                         entry_clean,
                         re.IGNORECASE,
                     )
